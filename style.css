@@ -477,41 +477,39 @@ body {
     }
 }
 
-/* MOBIILISSA PIENEMMÄT GALLERIAKUVAT */
+/* --- GALLERIA MOBIILIKORJAUS --- */
 @media (max-width: 700px) {
+
+    /* Poistaa absolute‑positionoinnin mobiilissa */
+    .slide {
+        position: relative;
+        opacity: 0;
+        display: none;
+    }
+
+    .slide.active {
+        opacity: 1;
+        display: block;
+    }
+
+    /* Skaalaa kuvat oikein */
     .slide img {
-        height: 260px;
-        border-radius: 10px;
+        width: 100%;
+        height: auto;
+        max-height: 260px;
         object-fit: cover;
     }
 
+    /* Slideshow venyy sisällön mukaan */
     .slideshow {
-        max-width: 95%;
-        border-radius: 10px;
+        height: auto;
+        max-width: 100%;
     }
 
-    .slide p {
-        font-size: 14px;
-        padding: 6px;
-    }
-}
-
-/* PIENIMMILLE PUHELIMILLE */
-@media (max-width: 480px) {
-    .slide img {
-        height: 200px;
-    }
-
+    /* Nappien koko pienemmäksi */
     .slide-btn {
-        padding: 5px 8px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 700px) {
-    .gallery-title {
-        margin-left: 0;
-        text-align: left;
+        font-size: 16px;
+        padding: 6px 10px;
     }
 }
 
