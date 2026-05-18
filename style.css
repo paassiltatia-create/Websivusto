@@ -189,6 +189,25 @@ nav a.active {
     justify-content: flex-start;
 }
 
+@media (max-width: 700px) {
+
+    .content {
+        padding: 0 15px;
+        margin-bottom: 25px;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .page-wrapper {
+        min-height: auto;
+        padding-top: 10px;
+    }
+}
+
 /* KUVAKORTTI */
 .card.image-card {
   background: white;
