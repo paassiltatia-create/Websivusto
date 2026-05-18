@@ -111,7 +111,6 @@ nav a.active {
         max-width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
-        border-radius: 0 !important;
     }
 
     .nav-left,
@@ -164,6 +163,7 @@ nav a.active {
 @media (max-width: 700px) {
     .hero {
         padding: 50px 20px;
+        overflow-x: hidden;
     }
 
     .hero h2 {
