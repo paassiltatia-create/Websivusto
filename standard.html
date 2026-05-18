@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="top">
+<body>
 
 <header>
 <nav>
-     <ul class="nav-right">
+    <ul class="nav-left">
         <li><a href="index.html">Etusivu</a></li>
         <li><a href="standard.html" class="active">Rotumääritelmä</a></li>
         <li><a href="health.html">Terveys</a></li>
     </ul>
 
     <div class="nav-center">
+        <a href="index.html">
         <img src="https://i.ibb.co/HTYcJsMV/Copilot-20260517-133811.png" alt="Springerin siluetti" class="logo-icon">
+        </a>
     </div>
 
     <ul class="nav-right">
@@ -194,9 +196,9 @@
 
 </section>
 
-<footer>
-    <a href="#top" class="back-to-top">Palaa sivun alkuun</a>
+<button id="backToTop">↑</button>
 
+<footer>
     <p>© 2026</p>
 </footer>
 
@@ -272,6 +274,22 @@ window.addEventListener('resize', () => {
     if (window.innerWidth > 700) {
         mobileMenu.classList.remove('active');
     }
+});
+</script>
+
+<script>
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 

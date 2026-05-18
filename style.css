@@ -1,16 +1,8 @@
 html, body {
-    height: 100%;
-}
-
-.page-wrapper {
-    min-height: calc(100vh - 90px); /* footerin korkeus */
-}
-
-body {
+     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #e8f5e9;
-    color: #2e4d33;
+    display: flex;
+    flex-direction: column;
 }
 
 /* NAVIGAATIO */
@@ -21,7 +13,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
+    gap: 40px;
+    overflow: hidden;
 }
 
 /* NAVIN KOLME ALUETTA */
@@ -82,9 +75,8 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 6px;
-
+    padding: 6px 16px;
+    border-radius: 8px;
     transition: 0.25s ease;
 }
 
@@ -95,7 +87,9 @@ nav a:hover {
 
 /* AKTIIVINEN SIVU */
 nav a.active {
-    background: rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.35);
+    color: #ffffff;
+    border-radius: 8px;
 }
 
 /* NAV MOBIILISSA */
@@ -125,6 +119,7 @@ nav a.active {
         display: flex;
         order: 2;
         margin-left: auto;
+        overflow: hidden;
     }
 }
 
@@ -137,7 +132,6 @@ nav a.active {
     );
     padding: 80px 20px;
     text-align: center;
-    border-radius: 0 0 40px 40px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
@@ -160,7 +154,6 @@ nav a.active {
 @media (max-width: 700px) {
     .hero {
         padding: 50px 20px;
-        border-radius: 0 0 25px 25px;
     }
 
     .hero h2 {
@@ -175,8 +168,9 @@ nav a.active {
 /* SISÄLTÖ */
 .content {
     max-width: 1200px;
-    margin: 40px auto;
     padding: 0 20px;
+    flex-grow: 0;
+    margin-bottom: 20px;
 }
 
 .features {
@@ -186,38 +180,60 @@ nav a.active {
     margin-top: 30px;
 }
 
-/* KORTTIEN ASETTELU */
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
+.page-wrapper {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    min-width: 250px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    justify-content: flex-start;
 }
 
 /* KUVAKORTTI */
 .card.image-card {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: white;
+  border: 2px solid #a5d6a7;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.18),
+    0 0 8px rgba(76, 175, 80, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 28px rgba(0,0,0,0.25),
+    0 0 12px rgba(76, 175, 80, 0.18);
 }
 
 .card.image-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.card.image-card:hover img {
-    transform: scale(1.085);
+.card.image-card-content {
+  padding: 14px 18px;
+}
+
+.card.image-card-content h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card.image-card-content p {
+  font-size: 15px;
+  color: #444;
 }
 
 /* KUVAKORTTI PIENEMMÄKSI MOBIILISSA */
@@ -237,8 +253,7 @@ footer {
     color: white;
     text-align: center;
     padding: 15px;
-    margin-top: 40px;
-    margin-bottom: 0;
+    margin: 0; /* tärkeää */
 }
 
 /* RESPONSIIVISUUS */
@@ -266,10 +281,16 @@ body {
 .card {
     background: #ffffff;
     padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-left: 6px solid #66bb6a;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #a5d6a7;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.12),
+        0 0 8px rgba(165, 214, 167, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .card h3 {
@@ -289,12 +310,55 @@ body {
 
 .subcard {
     background: #f1f8f2;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 14px;
+    border-radius: 16px;
     font-size: 14px;
     line-height: 1.4;
-    border: 1px solid #c8e6c9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 2px solid #a5d6a7;
+}
+
+/* KORTIT JA SUBCARDIT MOBIILISSA */
+@media (max-width: 700px) {
+
+    .card {
+        padding: 18px;
+        border-radius: 14px;
+        margin-bottom: 16px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+        padding-bottom: 4px;
+    }
+
+    .subcard {
+        padding: 10px;
+        border-radius: 12px;
+        font-size: 13px;
+    }
+
+    .subgrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* PIENIMMÄT PUHELIMET */
+@media (max-width: 450px) {
+
+    .subgrid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .subcard {
+        padding: 8px;
+        border-radius: 10px;
+    }
 }
 
 /* NAPIT */
@@ -332,10 +396,18 @@ body {
 }
 
 /* TAULUKOT */
+.health-title {
+    font-size: 22px;
+    color: #1b5e20;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #a5d6a7;
+}
+
 .green-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 16px;
     background: #ffffff;
     border-radius: 10px;
@@ -344,8 +416,8 @@ body {
 }
 
 .green-table thead {
-    background: #2e7d32;
-    color: white;
+    background: #a5d6a7;
+    color: #1b5e20;
 }
 
 .green-table th,
@@ -372,6 +444,7 @@ body {
     width: 100%;
     overflow-x: auto;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .green-table {
@@ -385,13 +458,12 @@ body {
     white-space: nowrap;
 }
 
-.card.table-card {
-    flex: 1 1 100% !important;
-    max-width: 100% !important;
-}
-
 /* TAULUKOT MOBIILISSA PIENEMMÄKSI */
 @media (max-width: 700px) {
+    .health-title {
+    margin-top: 10px;
+    margin-bottom: 6px;
+    }
 
     .green-table {
         font-size: 11px;
@@ -405,28 +477,30 @@ body {
 
     .green-table-wrapper {
         overflow-x: auto;
+        margin-bottom: 0px;
     }
 }
 
-/* GALLERIA */
+/* GALLERIA – EI KORTTIA, SIISIT PYÖRISTETYT KUVAT */
 .slideshow {
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin: 30px auto;
+    margin: 20px auto 10px auto;
     overflow: hidden;
-    border-radius: 10px;
-    background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
 }
 
+/* SLIDE */
 .slide {
     position: absolute;
     width: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 0;
 }
 
 .slide.active {
@@ -435,17 +509,13 @@ body {
 }
 
 .slide img {
-    width: 100%;
-    height: 450px;
+    width: 600px;
+    height: 400px;
     object-fit: cover;
-    border-radius: 10px 10px 0 0;
+    border-radius: 14px;
 }
 
-.slide p {
-    padding: 10px;
-    font-weight: bold;
-}
-
+/* NAPIT */
 .slide-btn {
     position: absolute;
     top: 50%;
@@ -467,40 +537,29 @@ body {
     background-color: rgba(27, 94, 32, 0.9);
 }
 
-.gallery-title {
-    margin-left: 100px;
-}
+/* MOBIILI – PIENEMMÄT KUVAT */
+@media (max-width: 700px) {
+    .slide img {
+        height: 260px;
+        border-radius: 14px;
+    }
 
-@media (max-width: 480px) {
+    .slide p {
+        font-size: 14px;
+        padding: 6px 0 0 0;
+    }
+
     .slide-btn {
         padding: 6px 10px;
         font-size: 16px;
     }
 }
 
-/* MOBIILISSA PIENEMMÄT GALLERIAKUVAT */
-@media (max-width: 700px) {
-    .slide img {
-        height: 260px;
-        border-radius: 10px;
-        object-fit: cover;
-    }
-
-    .slideshow {
-        max-width: 95%;
-        border-radius: 10px;
-    }
-
-    .slide p {
-        font-size: 14px;
-        padding: 6px;
-    }
-}
-
-/* PIENIMMILLE PUHELIMILLE */
+/* PIENIMMÄT PUHELIMET */
 @media (max-width: 480px) {
     .slide img {
         height: 200px;
+        border-radius: 12px;
     }
 
     .slide-btn {
@@ -509,29 +568,38 @@ body {
     }
 }
 
-@media (max-width: 700px) {
-    .gallery-title {
-        margin-left: 0;
-        text-align: left;
-    }
+/* PALAA SIVUN ALKUUN - NAPPI */
+#backToTop {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 10px;       
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  opacity: 0.8;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  transition: opacity 0.25s ease, 
+              transform 0.25s ease;
+  z-index: 999;
+  backdrop-filter: blur(4px);
 }
 
-/* PALAA SIVUN ALKUUN-NAPPI */
-.back-to-top {
-    display: inline-block;
-    margin-top: 10px;
-    background-color: #66bb6a;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.25s ease, transform 0.25s ease;
+#backToTop:hover {
+  opacity: 1;
+  transform: translateY(-3px);
 }
 
-.back-to-top:hover {
-    background-color: #2e7d32;
-    transform: scale(1.05);
+#backToTop:active {
+  transform: translateY(0);
+}
+
+#backToTop.show {
+  display: block;
 }
 
 /* POPUP */
@@ -551,17 +619,22 @@ body {
 .popup-content {
     background: #ffffff;
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 20px;
     width: 90%;
     max-width: 450px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    border-left: 6px solid #66bb6a;
+    border: 2px solid #a5d6a7;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.12),
+        0 0 8px rgba(165,214,167,0.25);
     position: relative;
 }
 
 .popup-content h3 {
     margin-top: 0;
+    font-size: 22px;
     color: #1b5e20;
+    border-bottom: 2px solid #a5d6a7;
+    padding-bottom: 6px;
 }
 
 .close {
@@ -571,6 +644,37 @@ body {
     font-size: 28px;
     cursor: pointer;
     color: #2e7d32;
+}
+
+@media (max-width: 700px) {
+
+    .popup-content {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .popup-content h3 {
+        font-size: 20px;
+        padding-bottom: 4px;
+    }
+
+    .close {
+        font-size: 24px;
+        top: 8px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .popup-content {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .popup-content h3 {
+        font-size: 18px;
+    }
 }
 
 /* INFO-NAPPI */
@@ -824,7 +928,7 @@ body {
     color: #1c3f1c;
 }
 
-/* VOESTIKORTIN ULKO-OSA */
+/* VIESTIKORTIN ULKO-OSA */
 .guestbook-message {
     background: #ffffff;
     padding: 12px 14px;
@@ -926,10 +1030,6 @@ body {
     padding: 10px;
     border-radius: 6px;
     transition: 0.25s ease;
-}
-
-.hamburger:hover {
-    background: rgba(255, 255, 255, 0.20);
 }
 
 .hamburger span {

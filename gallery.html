@@ -18,7 +18,9 @@
     </ul>
 
     <div class="nav-center">
+        <a href="index.html">
         <img src="https://i.ibb.co/HTYcJsMV/Copilot-20260517-133811.png" alt="Springerin siluetti" class="logo-icon">
+        </a>
     </div>
 
     <ul class="nav-right">
@@ -51,23 +53,18 @@
 <div class="slideshow">
     <div class="slide active">
         <img src="https://i.ibb.co/JwP1F4hJ/517494990-10236362370188840-7473392870081601617-n.jpg" alt="Uimassa">
-        <p>Springerit rakastavat vettä</p>
     </div>
     <div class="slide">
         <img src="https://i.ibb.co/Lzb5gpwg/525449421-10236751495156721-4780518032455964062-n.jpg" alt="Leikit">
-        <p>Springereitä leikkimässä</p>
     </div>
     <div class="slide">
         <img src="https://i.ibb.co/vC0dz4k3/574298477-10240537385998337-8851269221401107055-n.jpg" alt="Metsästysreissu">
-        <p>Springeri saaliinsa kanssa</p>
     </div>
     <div class="slide">
         <img src="https://i.ibb.co/GNRXNh5/517257614-10236436769328772-7704672805905680310-n.jpg" alt="Hyppy">
-        <p>Springeri on innolla mukana kaikessa</p>
     </div>
     <div class="slide">
         <img src="https://i.ibb.co/1tJ09XBL/638754843-10242182058314117-2662108381395492040-n.jpg" alt="Pennut">
-        <p>Vastasyntyneet pennut</p>
     </div>
 
     <button class="slide-btn prev">&#10094;</button>
@@ -78,9 +75,9 @@
 
 </div>
 
-<footer>
-    <a href="#top" class="back-to-top">Palaa sivun alkuun</a>
+<button id="backToTop">↑</button>
 
+<footer>
     <p>© 2026</p>
 </footer>
 
@@ -146,6 +143,22 @@ window.addEventListener('resize', () => {
     if (window.innerWidth > 700) {
         mobileMenu.classList.remove('active');
     }
+});
+</script>
+
+<script>
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 
