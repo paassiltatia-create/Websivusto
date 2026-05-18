@@ -106,12 +106,6 @@ nav a.active {
         max-width: 100%;
         box-sizing: border-box;
     }
-    }
-
-        header, .header-wrapper, .nav-container {
-        width: 100%;
-        max-width: 100%;
-    }
 
     .nav-left,
     .nav-right {
