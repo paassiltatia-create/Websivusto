@@ -480,9 +480,8 @@ body {
 /* --- GALLERIA MOBIILIKORJAUS --- */
 @media (max-width: 700px) {
 
-    /* Poistaa absolute‑positionoinnin mobiilissa */
     .slide {
-        position: relative;
+        position: relative !important;
         opacity: 0;
         display: none;
     }
@@ -492,7 +491,6 @@ body {
         display: block;
     }
 
-    /* Skaalaa kuvat oikein */
     .slide img {
         width: 100%;
         height: auto;
@@ -500,13 +498,11 @@ body {
         object-fit: cover;
     }
 
-    /* Slideshow venyy sisällön mukaan */
     .slideshow {
         height: auto;
         max-width: 100%;
     }
 
-    /* Nappien koko pienemmäksi */
     .slide-btn {
         font-size: 16px;
         padding: 6px 10px;
