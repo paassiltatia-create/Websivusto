@@ -419,22 +419,23 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* yksi dia kerrallaan */
 .slide {
-    display: none;
+    position: absolute;
     width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     text-align: center;
-    margin: 0;
+    padding-bottom: 20px;
 }
 
 .slide.active {
-    display: block;
+    opacity: 1;
+    position: relative;
 }
 
-/* kuvat aina saman kokoisia (kuvasuhde) */
 .slide img {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 450px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
@@ -444,7 +445,6 @@ body {
     font-weight: bold;
 }
 
-/* napit */
 .slide-btn {
     position: absolute;
     top: 50%;
@@ -470,42 +470,48 @@ body {
     margin-left: 100px;
 }
 
-/* MOBIILI */
+@media (max-width: 480px) {
+    .slide-btn {
+        padding: 6px 10px;
+        font-size: 16px;
+    }
+}
+
+/* MOBIILISSA PIENEMMÄT GALLERIAKUVAT */
 @media (max-width: 700px) {
+    .slide img {
+        height: 260px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
     .slideshow {
         max-width: 95%;
         border-radius: 10px;
-    }
-
-    .slide img {
-        aspect-ratio: 4 / 3; /* vähän matalampi mobiilissa */
     }
 
     .slide p {
         font-size: 14px;
         padding: 6px;
     }
-
-    .gallery-title {
-        margin-left: 0;
-        text-align: left;
-    }
-
-    .slide-btn {
-        font-size: 16px;
-        padding: 6px 10px;
-        top: 45%;
-    }
 }
 
+/* PIENIMMILLE PUHELIMILLE */
 @media (max-width: 480px) {
     .slide img {
-        aspect-ratio: 3 / 2;
+        height: 200px;
     }
 
     .slide-btn {
         padding: 5px 8px;
         font-size: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+    .gallery-title {
+        margin-left: 0;
+        text-align: left;
     }
 }
 
