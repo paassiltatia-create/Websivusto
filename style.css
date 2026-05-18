@@ -470,10 +470,10 @@ body {
     margin-left: 100px;
 }
 
-/* --- MOBIILIKORJAUS GALLERIAAN --- */
+/* --- MOBIILIKORJAUS GALLERIAAN (TOIMIVA) --- */
 @media (max-width: 700px) {
 
-    /* Poistaa absolute-asettelun vain mobiilissa */
+    /* Poistaa absolute-asettelun kokonaan mobiilissa */
     .slide {
         position: relative !important;
         opacity: 0;
@@ -486,15 +486,16 @@ body {
         display: block;
     }
 
-    /* Kuvien koko ei enää muutu */
+    /* Kuvien koko pysyy samana */
     .slide img {
         width: 100%;
         height: auto !important;
         max-height: 260px;
         object-fit: cover;
+        border-radius: 10px;
     }
 
-    /* Slideshow venyy sisällön mukaan */
+    /* Slideshow saa oikean korkeuden */
     .slideshow {
         height: auto !important;
         max-width: 100%;
