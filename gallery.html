@@ -27,8 +27,7 @@
         <li><a href="gallery.html" class="active">Galleria</a></li>
         <li><a href="guestbook.html">Vieraskirja</a></li>
     </ul>
-    
-    <!-- MOBIILIVALIKKO -->
+
     <div class="hamburger">
         <span></span>
         <span></span>
@@ -50,22 +49,27 @@
     <h2 class="gallery-title">Galleria</h2>
 
     <div class="slideshow">
+
         <div class="slide active">
             <img src="https://i.ibb.co/JwP1F4hJ/517494990-10236362370188840-7473392870081601617-n.jpg" alt="Uimassa">
             <p>Springerit rakastavat vettä</p>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/Lzb5gpwg/525449421-10236751495156721-4780518032455964062-n.jpg" alt="Leikit">
             <p>Springereitä leikkimässä</p>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/vC0dz4k3/574298477-10240537385998337-8851269221401107055-n.jpg" alt="Metsästysreissu">
             <p>Springeri saaliinsa kanssa</p>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/GNRXNh5/517257614-10236436769328772-7704672805905680310-n.jpg" alt="Hyppy">
             <p>Springeri on innolla mukana kaikessa</p>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/1tJ09XBL/638754843-10242182058314117-2662108381395492040-n.jpg" alt="Pennut">
             <p>Vastasyntyneet pennut</p>
@@ -73,6 +77,7 @@
 
         <button class="slide-btn prev">&#10094;</button>
         <button class="slide-btn next">&#10095;</button>
+
     </div>
 </section>
 
@@ -82,51 +87,50 @@
 </footer>
 
 <script>
-    // KUVAGALLERIAN ASETUKSET
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.slide-btn.prev');
-    const nextBtn = document.querySelector('.slide-btn.next');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.slide-btn.prev');
+const nextBtn = document.querySelector('.slide-btn.next');
 
-    let currentIndex = 0;
-    let slideTimer;
+let currentIndex = 0;
+let slideTimer;
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    function prevSlideFunc() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    function startAutoSlide() {
-        slideTimer = setInterval(nextSlide, 4000);
-    }
-
-    function resetAutoSlide() {
-        clearInterval(slideTimer);
-        startAutoSlide();
-    }
-
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoSlide();
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
     });
+}
 
-    prevBtn.addEventListener('click', () => {
-        prevSlideFunc();
-        resetAutoSlide();
-    });
-
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
     showSlide(currentIndex);
+}
+
+function prevSlideFunc() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+}
+
+function startAutoSlide() {
+    slideTimer = setInterval(nextSlide, 4000);
+}
+
+function resetAutoSlide() {
+    clearInterval(slideTimer);
     startAutoSlide();
+}
+
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+    prevSlideFunc();
+    resetAutoSlide();
+});
+
+showSlide(currentIndex);
+startAutoSlide();
 </script>
 
 <script>
