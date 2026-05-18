@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrastukset</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<nav>
+    <ul class="nav-left">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="standard.html">Rotumääritelmä</a></li>
+        <li><a href="health.html">Terveys</a></li>
+    </ul>
+
+    <div class="nav-center">
+        <img src="https://i.ibb.co/HTYcJsMV/Copilot-20260517-133811.png" alt="Springerin siluetti" class="logo-icon">
+    </div>
+
+    <ul class="nav-right">
+        <li><a href="hobbies.html" class="active">Harrastukset</a></li>
+        <li><a href="gallery.html">Galleria</a></li>
+        <li><a href="guestbook.html">Vieraskirja</a></li>
+    </ul>
+
+    <!-- MOBIILIVALIKKO -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-menu">
+    <a href="index.html">Etusivu</a>
+    <a href="standard.html">Rotumääritelmä</a>
+    <a href="health.html">Terveys</a>
+    <a href="hobbies.html">Harrastukset</a>
+    <a href="gallery.html">Galleria</a>
+    <a href="guestbook.html">Vieraskirja</a>
+</div>
+</header>
+
+<section class="content">
+    <h2>Harrastusmahdollisuuksia</h2>
+
+    <div class="features">
+
+        <div class="card">
+            <h3>Agility</h3>
+            <button class="info-btn" data-popup="agility">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>Koiratanssi</h3>
+            <button class="info-btn" data-popup="koiratanssi">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>MEJÄ</h3>
+            <button class="info-btn" data-popup="mejä">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>Metsästys</h3>
+            <button class="info-btn" data-popup="metsästys">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>Nosework</h3>
+            <button class="info-btn" data-popup="nosework">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>Näyttelyt</h3>
+            <button class="info-btn" data-popup="näyttelyt">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>Rally-toko</h3>
+            <button class="info-btn" data-popup="rally">Lisätietoja</button>
+        </div>
+
+        <div class="card">
+            <h3>Toko</h3>
+            <button class="info-btn" data-popup="toko">Lisätietoja</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <a href="#top" class="back-to-top">Palaa sivun alkuun</a>
+
+    <p>© 2026</p>
+</footer>
+
+<!-- POPUP-IKKUNAT -->
+<div id="popup-agility" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Agility</h3>
+        <p>Agility on laji, jossa koira suorittaa tuomarin laatimaa esterataa ohjaajan antamien käskyjen mukaan. Laji vaatii koiralta nopeutta ja ketteryyttä.</p>
+    </div>
+</div>
+
+<div id="popup-koiratanssi" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Koiratanssi</h3>
+        <p>Koiratanssi on hauska laji, jossa tottelevaisuus yhdistetään musiikkiin. Musiikin tahtiin suoritetaan erilaisia temppuja, liikkeitä ja seuraamista.</p>
+    </div>
+</div>
+
+<div id="popup-mejä" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>MEJÄ</h3>
+        <p>MEJÄ eli metsästyskoirien jäljestämiskoe on laji, jossa koira jäljestää joko hirvieläimen tai naudan verellä tehdyn jäljen. Sen lopussa on kaato, eli hirvieläimen sorkka, joka koiran tulee löytää. Jälki on taitotasosta riippuen 900-1400 metriä pitkä ja sisältää kulmia sekä haavoitetun riistaeläimen makuupaikkoja. Jälki on taitotasosta riippuen vähintään 12-18 tuntia vanha.</p>
+    </div>
+</div>
+
+<div id="popup-metsästys" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Metsästys</h3>
+        <p>Spanielien kanssa voi harrastaa metsästystä joko omaksi iloksi tai kilpaillen spanieleille suunnitelluissa spanielien metsästyskokeissa (SPME). Kokeita järjestetään niin maalla kuin vesityöskentelynäkin.</p>
+    </div>
+</div>
+
+<div id="popup-nosework" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Nosework</h3>
+        <p>Noseworkissa koira etsii piilossa olevia hajukätköjä. Kätköt voivat olla piilotettuina laatikoihin, ajoneuvoihin, ulos tai sisälle - siis melkein minne vain.</p>
+    </div>
+</div>
+
+<div id="popup-näyttelyt" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Näyttelyt</h3>
+        <p>Koiranäyttelyissä koiria arvostellaan ulkomuodon perusteella. Ulkomuototuomari arvioi, kuinka hyvin koira vastaa rotumääritelmää niin rakenteen, liikkeen kuin luonteenkin puolesta.</p>
+    </div>
+</div>
+
+<div id="popup-rally" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Rally-toko</h3>
+        <p>Rally-toko yhdistää tottelevaisuuden ja hauskat tehtävät. Ohjaaja ja koira kulkevat pitkin tuomarin suunnittelemaa rataa, jossa suoritetaan erilaisia tehtäviä niille suunnattujen kylttien kohdalla.</p>
+    </div>
+</div>
+
+<div id="popup-toko" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Toko</h3>
+        <p>Toko eli tottelevaisuuskoe on laji, jossa arvioidaan koiralle opetettujen tottelevaisuusliikkeiden hallintaa sekä myös koiran ja ohjaajan välistä yhteistyötä. Erilaisia liikkeitä suoritetaan tuomarin määräämässä järjestyksessä.</p>
+    </div>
+</div>
+
+<script>
+// POPUP-IKKUNAT
+document.querySelectorAll('.info-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-popup');
+        document.getElementById('popup-' + id).style.display = 'flex';
+    });
+});
+
+document.querySelectorAll('.close').forEach(close => {
+    close.addEventListener('click', () => {
+        close.parentElement.parentElement.style.display = 'none';
+    });
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('popup')) {
+        e.target.style.display = 'none';
+    }
+});
+</script>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 700) {
+        mobileMenu.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>

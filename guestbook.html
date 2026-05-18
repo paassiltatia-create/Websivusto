@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vieraskirja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+<div class="page-wrapper">
+
+<div id="top"></div>
+
+<header>
+<nav>
+    <ul class="nav-left">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="standard.html">Rotumääritelmä</a></li>
+        <li><a href="health.html">Terveys</a></li>
+    </ul>
+
+    <div class="nav-center">
+        <img src="https://i.ibb.co/HTYcJsMV/Copilot-20260517-133811.png" alt="Springerin siluetti" class="logo-icon">
+    </div>
+
+    <ul class="nav-right">
+        <li><a href="hobbies.html">Harrastukset</a></li>
+        <li><a href="gallery.html">Galleria</a></li>
+        <li><a href="guestbook.html" class="active">Vieraskirja</a></li>
+    </ul>
+
+    <!-- MOBIILIVALIKKO -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-menu">
+    <a href="index.html">Etusivu</a>
+    <a href="standard.html">Rotumääritelmä</a>
+    <a href="health.html">Terveys</a>
+    <a href="hobbies.html">Harrastukset</a>
+    <a href="gallery.html">Galleria</a>
+    <a href="guestbook.html">Vieraskirja</a>
+</div>
+</header>
+
+<section class="content">
+    <h2>Vieraskirja</h2>
+    <p>Tähän voit jättää palautetta sivustosta.</p>
+
+    <div class="guestbook-container">
+
+      <form class="guestbook-form">
+
+        <div class="guestbook-field">
+          <label for="name">Nimi</label>
+          <input type="text" id="name" placeholder="Kirjoita nimesi">
+        </div>
+
+        <div class="guestbook-field">
+          <label for="message">Viesti</label>
+          <textarea id="message" placeholder="Kirjoita viestisi tähän"></textarea>
+        </div>
+        
+        <!-- ALERTIT -->
+        <div id="error-alert" class="simple-alert error" style="display:none;">
+        Täytä kaikki kentät ennen lähettämistä.
+        </div>
+
+        <div id="success-alert" class="simple-alert success" style="display:none;">
+        Viesti lähetetty onnistuneesti!
+        </div>
+
+        <button type="submit">Lähetä viesti</button>
+
+      </form>
+
+      <h3 class="messages-title">Jätetyt viestit</h3>
+
+      <div id="messages"></div>
+
+    </div>
+</section>
+</div>
+
+<footer>
+    <a href="#top" class="back-to-top">Palaa sivun alkuun</a>
+    <p>© 2026</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", loadMessages);
+
+function loadMessages() {
+  const messages = JSON.parse(localStorage.getItem("guestbookMessages")) || [];
+  const container = document.getElementById("messages");
+  container.innerHTML = "";
+
+  messages.forEach((msg, index) => {
+    const div = document.createElement("div");
+    div.className = "guestbook-message";
+
+    div.innerHTML = `
+      <div class="guestbook-message-inner">
+        <strong>${msg.name}</strong>
+        <p>${msg.text}</p>
+      </div>
+      <button class="delete-btn" data-index="${index}">×</button>
+    `;
+
+    container.appendChild(div);
+  });
+
+  document.querySelectorAll(".delete-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      const index = this.getAttribute("data-index");
+      const messages = JSON.parse(localStorage.getItem("guestbookMessages")) || [];
+
+      messages.splice(index, 1);
+      localStorage.setItem("guestbookMessages", JSON.stringify(messages));
+
+      loadMessages();
+    });
+  });
+}
+
+document.querySelector(".guestbook-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const text = document.getElementById("message").value.trim();
+
+  const errorAlert = document.getElementById("error-alert");
+  const successAlert = document.getElementById("success-alert");
+
+  // PIILOTA ALERTIT HETKEN KULUTTUA
+  errorAlert.style.display = "none";
+  successAlert.style.display = "none";
+
+  // VIRHE
+  if (!name || !text) {
+      errorAlert.style.display = "block";
+      errorAlert.style.opacity = "1";
+
+      setTimeout(() => {
+          errorAlert.style.opacity = "0";
+          setTimeout(() => errorAlert.style.display = "none", 300);
+      }, 2500);
+
+      return;
+  }
+
+  // ONNISTUNUT LÄHETYS
+  successAlert.style.display = "block";
+  successAlert.style.opacity = "1";
+
+  setTimeout(() => {
+      successAlert.style.opacity = "0";
+      setTimeout(() => successAlert.style.display = "none", 300);
+  }, 2500);
+
+  // TALLENNA VIESTI
+  const newMessage = { name, text };
+  const messages = JSON.parse(localStorage.getItem("guestbookMessages")) || [];
+  messages.push(newMessage);
+  localStorage.setItem("guestbookMessages", JSON.stringify(messages));
+
+  loadMessages();
+
+  // TYHJENNÄ LOMAKE
+  document.getElementById("name").value = "";
+  document.getElementById("message").value = "";
+});
+</script>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 700) {
+        mobileMenu.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>

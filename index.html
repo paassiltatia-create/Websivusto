@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etusivu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<nav>
+    <ul class="nav-left">
+        <li><a href="index.html" class="active">Etusivu</a></li>
+        <li><a href="standard.html">Rotumääritelmä</a></li>
+        <li><a href="health.html">Terveys</a></li>
+    </ul>
+
+    <div class="nav-center">
+        <img src="https://i.ibb.co/HTYcJsMV/Copilot-20260517-133811.png" alt="Springerin siluetti" class="logo-icon">
+    </div>
+
+    <ul class="nav-right">
+        <li><a href="hobbies.html">Harrastukset</a></li>
+        <li><a href="gallery.html">Galleria</a></li>
+        <li><a href="guestbook.html">Vieraskirja</a></li>
+    </ul>
+
+    <!-- MOBIILIVALIKKO -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-menu">
+    <a href="index.html">Etusivu</a>
+    <a href="standard.html">Rotumääritelmä</a>
+    <a href="health.html">Terveys</a>
+    <a href="hobbies.html">Harrastukset</a>
+    <a href="gallery.html">Galleria</a>
+    <a href="guestbook.html">Vieraskirja</a>
+</div>
+</header>
+
+<section class="hero">
+    <h2>Englanninspringerspanieli</h2>
+    <p>Sivustolta löydät tietoa tästä monenlaiseen toimintaan soveltuvasta koirarodusta.</p>
+</section>
+
+<section class="content">
+    <h3>Englanninspringerspanieli</h3>
+    <p>
+        Englanninspringerspanieli on luonteeltaan aktiivinen, ystävällinen ja älykäs. Se rakastaa uuden oppimista ja on miellyttämishaluinen: se on mielellään aina mukana kaikessa. Se on jalostettu ylösajavaksi lintukoiraksi. Springeri onkin erinomainen kaveri metsästysreissuille, mutta myös mukava seurakoira avoimen luonteensa johdosta. 
+    </p>
+
+    <div class="features">
+
+        <div class="card">
+            <h4>Alkuperä</h4>
+            <p>Muiden spanielirotujen (lukuunottamatta amerikancockerspanieli) tavoin myös englanninspringerspanieli on peräisin Britteinsaarilta. Kantaisät ovat lähteiden mukaan kulkeutuneet sinne mahdollisesti Manner-Euroopasta muinaisten roomalaisten mukana. Rotu on metsästykseen käytettävistä lintukoirista vanhin. Suomeen se on tullut 1920-luvun alkupuolella.</p>
+        </div>
+
+        <div class="card">
+            <h4>Käyttötarkoitus</h4>
+            <p>Alunperin englanninspringerspanielin käyttötarkoitus oli löytää riistaa ja saada se joko verkkoon tai esimerkiksi vinttikoiran eteen. Nykyään se on ylösajava lintukoira, joka löytää riistan, ajaa sen ylös ja noutaa sen.</p>
+        </div>
+
+    </div>
+
+    <div class="card image-card">
+        <img src="https://i.ibb.co/fzDcXB3C/518278150-10236520395419372-8406174321811362103-n.jpg" alt="Englanninspringerspanieli">
+        <h4>Englanninspringerspanieli isäntänsä kanssa</h4>
+    </div>
+
+</section>
+
+<footer>
+    <a href="#top" class="back-to-top">Palaa sivun alkuun</a>
+
+    <p>© 2026</p>
+</footer>
+
+<script>
+// JAVASCRIPT MOBIILIVALIKOLLE
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 700) {
+        mobileMenu.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>
