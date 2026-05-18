@@ -407,7 +407,7 @@ body {
     }
 }
 
-/* --- GALLERIA --- */
+/* GALLERIA */
 .slideshow {
     position: relative;
     width: 100%;
@@ -417,41 +417,34 @@ body {
     border-radius: 10px;
     background: #ffffff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    height: 500px;
 }
 
 .slide {
-    display: none;
+    position: absolute;
     width: 100%;
-    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .slide.active {
-    display: block;
+    opacity: 1;
+    position: relative;
 }
 
 .slide img {
     width: 100%;
-    height: 100%;
-    flex: 1 0 auto; /* kuva vie kaiken tilan */
+    height: 450px;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
 }
 
 .slide p {
-    height: 50px; /* kiinteä korkeus */
-    margin: 0;
     padding: 10px;
-    background: white;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* NAPIT */
 .slide-btn {
     position: absolute;
     top: 50%;
@@ -469,16 +462,57 @@ body {
 .slide-btn.prev { left: 10px; }
 .slide-btn.next { right: 10px; }
 
-/* MOBIILI */
-@media (max-width: 700px) {
-    .slideshow {
-        height: 310px; /* 260px kuva + 50px teksti */
-    }
+.slide-btn:hover {
+    background-color: rgba(27, 94, 32, 0.9);
+}
+
+.gallery-title {
+    margin-left: 100px;
 }
 
 @media (max-width: 480px) {
+    .slide-btn {
+        padding: 6px 10px;
+        font-size: 16px;
+    }
+}
+
+/* --- MOBIILIKORJAUS GALLERIAAN --- */
+@media (max-width: 700px) {
+
+    /* Poistaa absolute-asettelun vain mobiilissa */
+    .slide {
+        position: relative !important;
+        opacity: 0;
+        display: none;
+        padding-bottom: 0;
+    }
+
+    .slide.active {
+        opacity: 1;
+        display: block;
+    }
+
+    /* Kuvien koko ei enää muutu */
+    .slide img {
+        width: 100%;
+        height: auto !important;
+        max-height: 260px;
+        object-fit: cover;
+    }
+
+    /* Slideshow venyy sisällön mukaan */
     .slideshow {
-        height: 250px; /* 200px kuva + 50px teksti */
+        height: auto !important;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    /* Nappien koko mobiilissa */
+    .slide-btn {
+        font-size: 16px;
+        padding: 6px 10px;
+        top: 45%;
     }
 }
 
