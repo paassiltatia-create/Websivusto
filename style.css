@@ -420,17 +420,14 @@ body {
 }
 
 .slide {
-    position: absolute;
     width: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
     text-align: center;
     padding-bottom: 20px;
+    display: none;
 }
 
 .slide.active {
-    opacity: 1;
-    position: relative;
+    display: block;
 }
 
 .slide img {
@@ -466,46 +463,39 @@ body {
     background-color: rgba(27, 94, 32, 0.9);
 }
 
-.gallery-title {
-    margin-left: 100px;
-}
-
-@media (max-width: 480px) {
-    .slide-btn {
-        padding: 6px 10px;
-        font-size: 16px;
-    }
-}
-
-/* --- GALLERIA MOBIILIKORJAUS --- */
+/* MOBIILI */
 @media (max-width: 700px) {
-
-    .slide {
-        position: relative !important;
-        opacity: 0;
-        display: none;
-    }
-
-    .slide.active {
-        opacity: 1;
-        display: block;
-    }
-
     .slide img {
-        width: 100%;
         height: auto;
         max-height: 260px;
+        border-radius: 10px;
         object-fit: cover;
     }
 
     .slideshow {
-        height: auto;
-        max-width: 100%;
+        max-width: 95%;
+        border-radius: 10px;
+    }
+
+    .slide p {
+        font-size: 14px;
+        padding: 6px;
     }
 
     .slide-btn {
         font-size: 16px;
         padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide img {
+        max-height: 200px;
+    }
+
+    .slide-btn {
+        padding: 5px 8px;
+        font-size: 14px;
     }
 }
 

@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<div id="top"></div>
+
 <header>
 <nav>
     <ul class="nav-left">
@@ -48,7 +50,7 @@
     <h2 class="gallery-title">Galleria</h2>
 
     <div class="slideshow">
-        <div class="slide">
+        <div class="slide active">
             <img src="https://i.ibb.co/JwP1F4hJ/517494990-10236362370188840-7473392870081601617-n.jpg" alt="Uimassa">
             <p>Springerit rakastavat vettä</p>
         </div>
@@ -76,24 +78,22 @@
 
 <footer>
     <a href="#top" class="back-to-top">Palaa sivun alkuun</a>
-
     <p>© 2026</p>
 </footer>
 
 <script>
     // KUVAGALLERIAN ASETUKSET
-    let slides = document.querySelectorAll('.slide');
-    let prevBtn = document.querySelector('.slide-btn.prev');
-    let nextBtn = document.querySelector('.slide-btn.next');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slide-btn.prev');
+    const nextBtn = document.querySelector('.slide-btn.next');
 
     let currentIndex = 0;
     let slideTimer;
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.remove('active');
+            slide.classList.toggle('active', i === index);
         });
-        slides[index].classList.add('active');
     }
 
     function nextSlide() {
