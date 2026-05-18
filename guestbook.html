@@ -88,8 +88,6 @@
 </section>
 </div>
 
-<button id="backToTop">↑</button>
-
 <footer>
     <p>© 2026</p>
 </footer>
@@ -191,22 +189,6 @@ window.addEventListener('resize', () => {
     if (window.innerWidth > 700) {
         mobileMenu.classList.remove('active');
     }
-});
-</script>
-
-<script>
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    backToTop.classList.add("show");
-  } else {
-    backToTop.classList.remove("show");
-  }
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 
