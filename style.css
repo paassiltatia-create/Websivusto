@@ -6,7 +6,6 @@ html, body {
 @media (max-width: 700px) {
     html, body {
         overflow-x: hidden;
-        width: 100%;
         max-width: 100%;
     }
 }
@@ -111,6 +110,8 @@ nav a.active {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+        overflow-x: hidden;
+        border-radius: 0 !important;
     }
 
     .nav-left,
