@@ -478,6 +478,8 @@ body {
     overflow-x: auto;
     border-radius: 10px;
     margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
 }
 
 .green-table {
@@ -575,6 +577,10 @@ body {
 
 /* MOBIILI – PIENEMMÄT KUVAT */
 @media (max-width: 700px) {
+    .slideshow {
+        height: 280px;
+    }
+
     .slide img {
         height: 100%;
         border-radius: 14px;
@@ -593,8 +599,12 @@ body {
 
 /* PIENIMMÄT PUHELIMET */
 @media (max-width: 480px) {
+    .slideshow {
+        height: 240px;
+    }
+
     .slide img {
-        height: 200px;
+        height: 100%;
         border-radius: 12px;
     }
 
@@ -815,6 +825,11 @@ a.back-to-top:hover,
 
 /* MOBIILIVERSIO ROTUMÄÄRITELMÄ-SIVUSTA */
 @media (max-width: 700px) {
+    .slide-reveal {
+        height: 280px;
+        margin-bottom: 20px;
+    }
+
     .info-icon,
     .info-box,
     .hover-hint,
@@ -831,8 +846,9 @@ a.back-to-top:hover,
     .slide-reveal .img-base {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
         border-radius: 12px;
+        object-fit: cover;
     }
 
     .slide-reveal::before,
@@ -857,6 +873,14 @@ a.back-to-top:hover,
 
     .mobile-prev { left: 10px; }
     .mobile-next { right: 10px; }
+}
+
+/* PIENIMMÄT PUHELIMET - ROTUMÄÄRITELMÄ */
+@media (max-width: 480px) {
+    .slide-reveal {
+        height: 220px;
+        margin-bottom: 16px;
+    }
 }
 
 /* VIERASKIRJA */
