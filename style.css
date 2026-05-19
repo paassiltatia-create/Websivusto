@@ -198,11 +198,12 @@ nav a.active {
 .content {
     max-width: 1200px;
     padding: 0 20px;
-    flex-grow: 0;
+    flex: 1;
     margin: 0 auto 20px;
     width: 100%;
     box-sizing: border-box;
 }
+
 
 .features {
     display: flex;
@@ -603,9 +604,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: 14px;
     display: block;
 }
+
 
 /* NAPIT */
 .slide-btn {
@@ -648,6 +651,7 @@ body {
     .slide img {
         height: 100%;
         border-radius: 14px;
+        object-fit: cover;
     }
 
     .slide p {
@@ -663,7 +667,9 @@ body {
 
 
 /* PIENIMMÄT PUHELIMET */
-@media (max-width: 480px) {
+@media (max-width: 480px) { 
+
+
     .slideshow {
         height: 240px;
     }
@@ -671,13 +677,82 @@ body {
     .slide img {
         height: 100%;
         border-radius: 12px;
+        object-fit: cover;
     }
+
 
     .slide-btn {
         padding: 5px 8px;
         font-size: 14px;
     }
 }
+
+/* IMAGE POPUP (slideshow click) */
+.image-popup-content {
+    max-width: 900px;
+    width: 95%;
+    padding: 18px;
+}
+
+.image-popup-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 14px;
+}
+
+
+.image-popup-title {
+    margin: 12px 0 0 0;
+    font-size: 18px;
+    color: #1b5e20;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -0.2px;
+}
+
+/* Navigation buttons inside popup (match slideshow theme) */
+.image-popup-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(46, 125, 50, 0.85);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+
+.image-popup-prev {
+    left: 14px;
+}
+
+.image-popup-next {
+    right: 14px;
+}
+
+.image-popup-nav:hover {
+    background-color: rgba(27, 94, 32, 0.95);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.image-popup-content {
+    position: relative;
+}
+
 
 /* PALAA SIVUN ALKUUN - NAPPI */
 #backToTop {
@@ -765,12 +840,15 @@ a.back-to-top:hover,
 
 .close {
     position: absolute;
-    right: 15px;
+    right: 10px;
     top: 10px;
     font-size: 28px;
+    line-height: 1;
     cursor: pointer;
     color: #2e7d32;
+    z-index: 1000;
 }
+
 
 @media (max-width: 700px) {
 
@@ -778,6 +856,15 @@ a.back-to-top:hover,
         padding: 18px;
         border-radius: 14px;
     }
+
+    .image-popup-content {
+        padding: 14px;
+    }
+
+    .image-popup-content img {
+        max-height: 80vh;
+    }
+
 
     .popup-content h3 {
         font-size: 20px;
@@ -787,8 +874,10 @@ a.back-to-top:hover,
     .close {
         font-size: 24px;
         top: 8px;
-        right: 12px;
+        right: 10px;
+        line-height: 1;
     }
+
 }
 
 @media (max-width: 450px) {
@@ -797,6 +886,15 @@ a.back-to-top:hover,
         padding: 14px;
         border-radius: 12px;
     }
+
+    .image-popup-content {
+        padding: 12px;
+    }
+
+    .image-popup-content img {
+        max-height: 78vh;
+    }
+
 
     .popup-content h3 {
         font-size: 18px;
