@@ -85,8 +85,6 @@ nav {
     }
 }
 
-
-
 /* SIVUT */
 nav ul {
     list-style: none;
@@ -187,7 +185,7 @@ nav a.active {
     }
 
     .hero h2 {
-        font-size: 25px;
+        font-size: 30px;
         text-align: center;
     }
 
@@ -544,27 +542,30 @@ body {
 /* TAULUKOT MOBIILISSA PIENEMMÄKSI */
 @media (max-width: 700px) {
     .health-title {
-    margin-top: 10px;
-    margin-bottom: 6px;
-    }
-
-    .green-table {
-        font-size: 11px;
-    }
-
-    .green-table th,
-    .green-table td {
-        padding: 4px 6px;
-        white-space: nowrap;
+        margin-top: 10px;
+        margin-bottom: 6px;
     }
 
     .green-table-wrapper {
         overflow-x: auto;
         margin-bottom: 0px;
+        max-width: 100%;
+    }
+
+    /* Pienennä taulukkoa mobiilissa (parempi mahtuminen) */
+    .green-table {
+        font-size: 10.5px;
+    }
+
+    .green-table th,
+    .green-table td {
+        padding: 3px 5px;
+        white-space: nowrap;
     }
 }
 
-/* GALLERIA – EI KORTTIA, SIISIT PYÖRISTETYT KUVAT */
+
+/* GALLERIA */
 .slideshow {
     position: relative;
     width: 100%;
@@ -575,7 +576,6 @@ body {
     background: transparent;
     box-shadow: none;
     border-radius: 0;
-    /* Helps images scale reliably on mobile */
     min-height: 0;
 }
 
@@ -1343,8 +1343,9 @@ a.back-to-top:hover,
     }
 
     .hero h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
+
 
     .card.image-card {
         max-width: 100%;
@@ -1384,8 +1385,9 @@ a.back-to-top:hover,
     }
 
     .hero h2 {
-        font-size: 22px;
+        font-size: 26px;
     }
+
 
     .button-wrapper {
         margin: 16px 0;
