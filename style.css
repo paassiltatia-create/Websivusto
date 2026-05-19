@@ -282,7 +282,9 @@ nav a.active {
   font-weight: 800;
   letter-spacing: -0.2px;
   line-height: 1.25;
+  background: #ffffff; /* varmistaa luettavuuden */
 }
+
 
 footer {
     background-color: #2e7d32;
@@ -1177,6 +1179,7 @@ a.back-to-top:hover,
     flex-direction: column;
     z-index: 1000;
     pointer-events: none;
+
 
     background-color: rgba(46, 125, 50, 0.98);
     padding: 16px 16px;
