@@ -583,7 +583,9 @@ body {
 .slide.active {
     opacity: 1;
     position: relative;
+    z-index: 1;
 }
+
 
 .slide img {
     width: 100%;
@@ -1233,7 +1235,9 @@ a.back-to-top:hover,
 /* AKTIIVINEN MOBIILIMENU */
 .mobile-menu.active {
     display: flex;
+    z-index: 1000;
     max-height: calc(100vh - 60px);
+
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
