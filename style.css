@@ -1058,14 +1058,12 @@ a.back-to-top:hover,
 }
 
 .simple-alert.error {
-    background: #ffdddd;
-    border-left: 5px solid #d9534f;
+    background: #ffc7c7;
     color: #7a1f1a;
 }
 
 .simple-alert.success {
     background: #b4e3ac;
-    border-left: 5px solid #3f8f4a;
     color: #1c3f1c;
 }
 
@@ -1079,9 +1077,9 @@ a.back-to-top:hover,
     margin: 0 0 20px 0;
     min-width: 0;
     box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-    border-left: 4px solid #66bb6a;
     position: relative;
     transition: 0.25s ease;
+    border: 2px solid #b7d8b0;
 }
 
 /* HOVER */
