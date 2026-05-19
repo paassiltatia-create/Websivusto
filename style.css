@@ -1251,52 +1251,46 @@ a.back-to-top:hover,
 }
 
 /* AKTIIVINEN MOBIILIMENU */
-.mobile-menu.active {
-    display: flex;
-    pointer-events: auto;
-
+.mobile-menu {
+    display: none;
+    flex-direction: column;
     z-index: 1000;
+    pointer-events: none;
+    background-color: rgba(46, 125, 50, 0.98);
 
-    /* Keep menu anchored under the navbar (prevents it from showing in page middle) */
+    padding: 16px 16px;
+    gap: 8px;
+    align-items: stretch;
+    text-align: left;
+    border-radius: 0;
+
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     width: 100%;
+
     overflow-y: visible;
     max-height: none;
-}
 
-
-
-
-/* Smooth mobile-menu transition when switching breakpoints */
-nav {
-    /* allows absolute-positioned mobile-menu to be anchored to the header area */
-    position: relative;
-}
-
-.mobile-menu {
     transition: opacity 250ms ease, transform 250ms ease;
-}
-
-
-.mobile-menu:not(.active) {
     opacity: 0;
     transform: translateY(-6px);
-    pointer-events: none;
 }
 
 .mobile-menu.active {
+    display: flex;
+    pointer-events: auto;
+
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
-    /* ensure visible state anchors under the header on phones */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
 }
+
+/* ensure absolute positioning is relative to the header/nav */
+nav {
+    position: relative;
+}
+
 
 
 /* MOBIILI-RESPONSIIVISUUS */
