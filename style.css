@@ -554,14 +554,15 @@ body {
 
     /* Pienennä taulukkoa mobiilissa (parempi mahtuminen) */
     .green-table {
-        font-size: 10.5px;
+        font-size: 9.8px;
     }
 
     .green-table th,
     .green-table td {
-        padding: 3px 5px;
+        padding: 2.5px 4px;
         white-space: nowrap;
     }
+
 }
 
 
