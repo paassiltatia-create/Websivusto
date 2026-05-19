@@ -1173,6 +1173,7 @@ a.back-to-top:hover,
 .mobile-menu {
     display: none;
     flex-direction: column;
+    z-index: 1000;
     background-color: rgba(46, 125, 50, 0.98);
     padding: 16px 16px;
     gap: 8px;
@@ -1184,9 +1185,10 @@ a.back-to-top:hover,
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
 
 .mobile-menu a {
     font-family: Arial, sans-serif;
