@@ -179,7 +179,7 @@ nav a.active {
 
     .hero h2 {
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
 
     .hero p {
@@ -271,6 +271,17 @@ nav a.active {
         border-radius: 16px 16px 0 0;
         min-height: 200px;
     }
+}
+
+/* KUVAKORTIN TEKSTI (index.html h4) */
+.card.image-card h4 {
+  font-size: 16px;
+  margin: 0;
+  padding: 14px 18px;
+  color: #1b5e20;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  line-height: 1.25;
 }
 
 footer {
@@ -428,6 +439,23 @@ body {
     }
 }
 
+/* GALLERIA */
+.gallery-title {
+    font-size: 28px;
+    color: #1b5e20;
+    font-weight: 800;
+    margin: 0 0 16px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #a5d6a7;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 700px) {
+    .gallery-title {
+        font-size: 20px;
+    }
+}
+
 /* TAULUKOT */
 .health-title {
     font-size: 22px;
@@ -527,7 +555,10 @@ body {
     background: transparent;
     box-shadow: none;
     border-radius: 0;
+    /* Helps images scale reliably on mobile */
+    min-height: 0;
 }
+
 
 /* SLIDE */
 .slide {
@@ -550,6 +581,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 14px;
+    display: block;
 }
 
 /* NAPIT */
@@ -1013,6 +1045,7 @@ a.back-to-top:hover,
     width: 100%;
     max-width: 400px;
     margin: 0 0 20px 0;
+    min-width: 0;
     box-shadow: 0 3px 10px rgba(0,0,0,0.12);
     border-left: 4px solid #66bb6a;
     position: relative;
