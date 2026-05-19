@@ -16,6 +16,7 @@ body {
 
 /* NAVIGAATIO */ 
 nav {
+    position: relative;
     background-color: #2e7d32;
     color: white;
     padding: 15px 24px;
@@ -72,11 +73,19 @@ nav {
     width: auto;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .logo-icon {
         height: 45px;
     }
 }
+
+@media (max-width: 700px) {
+    .logo-icon {
+        height: 30px;
+    }
+}
+
+
 
 /* SIVUT */
 nav ul {
@@ -109,7 +118,7 @@ nav a.active {
 }
 
 /* NAV MOBIILISSA */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
     nav {
         display: flex;
@@ -172,7 +181,7 @@ nav a.active {
     color: #2e4d33;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .hero {
         padding: 50px 20px;
     }
@@ -261,7 +270,7 @@ nav a.active {
 }
 
 /* KUVAKORTTI PIENEMMÄKSI MOBIILISSA */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .card.image-card {
         max-width: 100%;
         margin: 20px auto;
@@ -438,7 +447,7 @@ body {
     text-align: left;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .subgrid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1181,7 +1190,11 @@ a.back-to-top:hover,
     pointer-events: none;
 
 
+
     background-color: rgba(46, 125, 50, 0.98);
+
+
+
     padding: 16px 16px;
     gap: 8px;
     align-items: stretch;
@@ -1218,7 +1231,7 @@ a.back-to-top:hover,
 }
 
 /* MOBIILINÄKYMÄ */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
     .nav-right {
         display: none;
@@ -1240,11 +1253,47 @@ a.back-to-top:hover,
 /* AKTIIVINEN MOBIILIMENU */
 .mobile-menu.active {
     display: flex;
-    z-index: 1000;
-    max-height: calc(100vh - 60px);
+    pointer-events: auto;
 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    z-index: 1000;
+
+    /* Make menu participate in layout (doesn't block content) */
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    overflow-y: visible;
+    max-height: none;
+}
+
+/* Keep menu from accidentally overlapping on mobile */
+@media (max-width: 900px) {
+    .mobile-menu {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Smooth mobile-menu transition when switching breakpoints */
+.mobile-menu {
+    transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.mobile-menu:not(.active) {
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 /* MOBIILI-RESPONSIIVISUUS */
