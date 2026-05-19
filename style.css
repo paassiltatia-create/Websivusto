@@ -355,6 +355,15 @@ body {
 
 /* KORTIT JA SUBCARDIT MOBIILISSA */
 @media (max-width: 700px) {
+    /* ÄLÄ RIKKOA INDEXIN IMAGE-CARDEJA generic .card -sääntöjen takia */
+    .card.image-card {
+        padding: 0;
+        border-radius: 16px;
+        background: #ffffff;
+        overflow: hidden;
+        box-shadow: none;
+    }
+
     .card {
         padding: 18px;
         border-radius: 14px;
@@ -613,6 +622,15 @@ body {
         height: 280px;
     }
 
+    /* TÄRKEÄÄ gallerian mobiilissa: älä vaihda .slidea position:relativeksi */
+    .slide {
+        position: absolute;
+    }
+
+    .slide.active {
+        position: relative;
+    }
+
     .slide img {
         height: 100%;
         border-radius: 14px;
@@ -628,6 +646,7 @@ body {
         font-size: 16px;
     }
 }
+
 
 /* PIENIMMÄT PUHELIMET */
 @media (max-width: 480px) {
@@ -1315,8 +1334,10 @@ a.back-to-top:hover,
         height: auto;
     }
 
+    /* ÄLÄ vaihda galleryn .slidea position:relativeksi mobiilissa */
     .slide {
-        position: relative;
+        position: absolute;
+        opacity: 0;
     }
 
     .slide p {
