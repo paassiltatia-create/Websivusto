@@ -1295,7 +1295,13 @@ a.back-to-top:hover,
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    /* ensure visible state anchors under the header on phones */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
 }
+
 
 /* MOBIILI-RESPONSIIVISUUS */
 @media (max-width: 700px) {
