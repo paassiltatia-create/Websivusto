@@ -1257,15 +1257,16 @@ a.back-to-top:hover,
 
     z-index: 1000;
 
-    /* Make menu participate in layout (doesn't block content) */
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
+    /* Keep menu anchored under the navbar (prevents it from showing in page middle) */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     width: 100%;
     overflow-y: visible;
     max-height: none;
 }
+
 
 /* Keep menu from accidentally overlapping on mobile */
 @media (max-width: 900px) {
