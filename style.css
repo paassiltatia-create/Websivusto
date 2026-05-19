@@ -582,9 +582,9 @@ body {
 
 .slide.active {
     opacity: 1;
-    position: relative;
-    z-index: 1;
+    z-index: 2;
 }
+
 
 
 .slide img {
@@ -1176,6 +1176,8 @@ a.back-to-top:hover,
     display: none;
     flex-direction: column;
     z-index: 1000;
+    pointer-events: none;
+
     background-color: rgba(46, 125, 50, 0.98);
     padding: 16px 16px;
     gap: 8px;
