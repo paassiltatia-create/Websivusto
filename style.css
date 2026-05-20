@@ -220,7 +220,7 @@ nav a.active {
     justify-content: flex-start;
 }
 
-/* KUVAKORTTI */
+/* ETUSIVUN KUVAKORTTI */
 .card.image-card {
   background: white;
   border: 2px solid #a5d6a7;
@@ -268,7 +268,7 @@ nav a.active {
   color: #444;
 }
 
-/* KUVAKORTTI PIENEMMÄKSI MOBIILISSA */
+/* ETUSIVUN KUVAKORTTI PIENEMMÄKSI MOBIILISSA */
 @media (max-width: 900px) {
     .card.image-card {
         max-width: 100%;
@@ -281,7 +281,7 @@ nav a.active {
     }
 }
 
-/* KUVAKORTIN TEKSTI (index.html h4) */
+/* ETUSIVUNKUVAKORTIN TEKSTI */
 .card.image-card h4 {
   font-size: 16px;
   margin: 0;
@@ -293,7 +293,7 @@ nav a.active {
   background: #ffffff; /* varmistaa luettavuuden */
 }
 
-
+/* FOOTER */
 footer {
     background-color: #2e7d32;
     color: white;
@@ -365,7 +365,7 @@ body {
 
 /* KORTIT JA SUBCARDIT MOBIILISSA */
 @media (max-width: 700px) {
-    /* ÄLÄ RIKKOA INDEXIN IMAGE-CARDEJA generic .card -sääntöjen takia */
+
     .card.image-card {
         padding: 0;
         border-radius: 16px;
@@ -553,7 +553,6 @@ body {
         max-width: 100%;
     }
 
-    /* Pienennä taulukkoa mobiilissa (parempi mahtuminen) */
     .green-table {
         font-size: 9.8px;
     }
@@ -567,7 +566,7 @@ body {
 }
 
 
-/* GALLERIA */
+/* GALLERIAN SLIDESHOW */
 .slideshow {
     position: relative;
     width: 100%;
@@ -581,8 +580,6 @@ body {
     min-height: 0;
 }
 
-
-/* SLIDE */
 .slide {
     position: absolute;
     width: 100%;
@@ -598,8 +595,6 @@ body {
     z-index: 2;
 }
 
-
-
 .slide img {
     width: 100%;
     cursor: pointer;
@@ -611,7 +606,7 @@ body {
 }
 
 
-/* NAPIT */
+/* GALLERIAN NAPIT */
 .slide-btn {
     position: absolute;
     top: 50%;
@@ -640,7 +635,6 @@ body {
         height: 280px;
     }
 
-    /* TÄRKEÄÄ gallerian mobiilissa: älä vaihda .slidea position:relativeksi */
     .slide {
         position: absolute;
     }
@@ -688,7 +682,7 @@ body {
     }
 }
 
-/* IMAGE POPUP (slideshow click) - single photo */
+/* GALLERIAN POPUP-KUVAT */
 .image-popup-content {
     max-width: 900px;
     width: 95%;
@@ -716,8 +710,6 @@ body {
 
 }
 
-
-
 .image-popup-single {
     position: relative;
     width: 100%;
@@ -733,8 +725,7 @@ body {
     border-radius: 14px;
 }
 
-
-/* Navigation buttons inside popup (match slideshow theme) */
+/* GALLERIAN POPUP-KUVIEN NAPIT */
 .image-popup-nav {
     position: absolute;
     top: 50%;
@@ -801,8 +792,6 @@ body {
   transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 999;
   backdrop-filter: blur(4px);
-
-  /* ettei tekstin rivinvaihdot vaikuta muotoon */
   line-height: 1;
   padding: 0;
 }
@@ -833,18 +822,16 @@ a.back-to-top:hover,
   display: inline-flex;
 }
 
-/* Ei näy ennen kuin JS lisää .show */
 #backToTop {
   display: none;
 }
 
-/* Varotoimi: varmista että välimatka ei aiheuta näkymistä */
 #backToTop:not(.show) {
   display: none;
 }
 
 
-/* POPUP */
+/* HARRASTUSSIVUN POPUP */
 .popup {
     display: none;
     position: fixed;
@@ -943,7 +930,7 @@ a.back-to-top:hover,
     }
 }
 
-/* INFO-NAPPI */
+/* INFO */
 .info-btn {
     margin-top: 10px;
     background-color: #66bb6a;
@@ -1322,27 +1309,19 @@ a.back-to-top:hover,
     border-radius: 3px;
 }
 
-/* mobile-menu (dropdown) */
 .mobile-menu {
     display: none;
     flex-direction: column;
-
-    /* not absolute => it will take space and not overlay content */
     position: relative;
-
     width: 100%;
     z-index: 1;
-
     background-color: rgba(46, 125, 50, 0.98);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-
     padding: 16px 16px;
     gap: 8px;
     align-items: stretch;
     text-align: left;
-
     pointer-events: none;
-
     margin: 0;
     transform: translateY(0);
 }
@@ -1393,9 +1372,6 @@ a.back-to-top:hover,
     display: flex;
     pointer-events: auto;
 }
-
-
-
 
 /* MOBIILI-RESPONSIIVISUUS */
 @media (max-width: 700px) {
@@ -1501,7 +1477,6 @@ a.back-to-top:hover,
         height: auto;
     }
 
-    /* ÄLÄ vaihda galleryn .slidea position:relativeksi mobiilissa */
     .slide {
         position: absolute;
         opacity: 0;
