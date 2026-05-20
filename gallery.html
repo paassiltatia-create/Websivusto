@@ -52,19 +52,19 @@
 
 <div class="slideshow">
     <div class="slide active">
-        <img src="https://i.ibb.co/JwP1F4hJ/517494990-10236362370188840-7473392870081601617-n.jpg" alt="Uimassa">
+        <img src="https://i.ibb.co/JwP1F4hJ/517494990-10236362370188840-7473392870081601617-n.jpg" alt="Uiminen on springereiden lempipuuhaa">
     </div>
     <div class="slide">
-        <img src="https://i.ibb.co/Lzb5gpwg/525449421-10236751495156721-4780518032455964062-n.jpg" alt="Leikit">
+        <img src="https://i.ibb.co/Lzb5gpwg/525449421-10236751495156721-4780518032455964062-n.jpg" alt="Springereitä leikkimässä">
     </div>
     <div class="slide">
-        <img src="https://i.ibb.co/vC0dz4k3/574298477-10240537385998337-8851269221401107055-n.jpg" alt="Metsästysreissu">
+        <img src="https://i.ibb.co/vC0dz4k3/574298477-10240537385998337-8851269221401107055-n.jpg" alt="Springeri saaliinsa kanssa">
     </div>
     <div class="slide">
-        <img src="https://i.ibb.co/GNRXNh5/517257614-10236436769328772-7704672805905680310-n.jpg" alt="Hyppy">
+        <img src="https://i.ibb.co/GNRXNh5/517257614-10236436769328772-7704672805905680310-n.jpg" alt="Springeri on aina innolla mukana kaikessa">
     </div>
     <div class="slide">
-        <img src="https://i.ibb.co/1tJ09XBL/638754843-10242182058314117-2662108381395492040-n.jpg" alt="Pennut">
+        <img src="https://i.ibb.co/1tJ09XBL/638754843-10242182058314117-2662108381395492040-n.jpg" alt="Vastasyntyneet springeripennut">
     </div>
 
     <button class="slide-btn prev">&#10094;</button>
@@ -72,6 +72,8 @@
 </div>
 
 </section>
+
+<button id="backToTop">↑</button>
 
 </div>
 
@@ -143,6 +145,22 @@ if (window.innerWidth > 700) {
     }
 });
 
+</script>
+
+<script>
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 </script>
 
 <script src="slideshow-popup.js"></script>

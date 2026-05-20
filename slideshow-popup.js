@@ -33,27 +33,67 @@
             <span class="close image-popup-close">&times;</span>
             <button type="button" class="image-popup-nav image-popup-prev" aria-label="Previous image">&#10094;</button>
             <button type="button" class="image-popup-nav image-popup-next" aria-label="Next image">&#10095;</button>
-            <img id="image-popup-img" alt="" />
-            <h3 id="image-popup-title" class="image-popup-title"></h3>
+
+            <div class="image-popup-header">
+              <h3 id="image-popup-title" class="image-popup-title"></h3>
+            </div>
+
+            <div class="image-popup-single" role="group" aria-label="Photo">
+              <img id="image-popup-img" alt="" />
+            </div>
+
           </div>
         `;
         document.body.appendChild(popup);
       }
 
-      const imgEl = document.getElementById('image-popup-img');
-      const titleEl = document.getElementById('image-popup-title');
+      const titleEl = popup.querySelector('#image-popup-title');
+      const imgEl = popup.querySelector('#image-popup-img');
 
-      imgEl.src = src;
-      imgEl.alt = alt;
-      titleEl.textContent = alt;
 
-      popup.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+      // Collect slide images in order
+      function getAllImages() {
+        const imgs = Array.from(slideshowEl.querySelectorAll('.slide img'));
+        return imgs.filter((x) => x && x.getAttribute('src'));
+      }
 
-      const closeBtn = popup.querySelector('.image-popup-close');
-      if (closeBtn) closeBtn.focus();
+      function indexOfSrc(srcNow) {
+        const imgs = getAllImages();
+        return imgs.findIndex((im) => im.getAttribute('src') === srcNow);
+      }
 
-      // Ensure close/keyboard handlers exist
+      function safeIndex(idx) {
+        const imgs = getAllImages();
+        if (!imgs.length) return 0;
+        return (idx + imgs.length) % imgs.length;
+      }
+
+      function setPhotoByIndex(idx) {
+        const imgs = getAllImages();
+        if (!imgs.length) return;
+
+        const safe = safeIndex(idx);
+        const active = imgs[safe];
+        const altNow = active.getAttribute('alt') || '';
+        const srcNow = active.getAttribute('src');
+
+        if (titleEl) titleEl.textContent = altNow;
+        if (imgEl) {
+          imgEl.src = srcNow;
+          imgEl.alt = altNow;
+        }
+
+        popup.dataset.activeIndex = String(safe);
+      }
+
+
+      function setActiveByIndex(idx) {
+        setPhotoByIndex(idx);
+      }
+
+
+
+      // Ensure handlers exist once
       if (!popup.dataset.handlersBound) {
         popup.addEventListener('click', (evt) => {
           if (evt.target === popup) {
@@ -72,39 +112,23 @@
         const prevBtnPopup = popup.querySelector('.image-popup-prev');
         const nextBtnPopup = popup.querySelector('.image-popup-next');
 
-        function getAllImages() {
-          // Collect slide images in order
-          const imgs = Array.from(slideshowEl.querySelectorAll('.slide img'));
-          return imgs.filter((x) => x && x.getAttribute('src'));
+        function getCurrentActiveIndex() {
+          const ai = Number(popup.dataset.activeIndex);
+          return Number.isFinite(ai) ? ai : 0;
         }
 
-        function indexOfCurrent() {
-          const currentSrc = imgEl.getAttribute('src');
-          const imgs = getAllImages();
-          return imgs.findIndex((im) => im.getAttribute('src') === currentSrc);
-        }
-
-        function showByIndex(idx) {
-          const imgs = getAllImages();
-          if (!imgs.length) return;
-          const safe = (idx + imgs.length) % imgs.length;
-          const im = imgs[safe];
-          const srcNow = im.getAttribute('src');
-          const altNow = im.getAttribute('alt') || '';
-          imgEl.src = srcNow;
-          imgEl.alt = altNow;
-          titleEl.textContent = altNow;
-        }
 
         function prevImage() {
-          const idx = indexOfCurrent();
-          showByIndex(idx - 1);
+          const idx = getCurrentActiveIndex();
+          setActiveByIndex(idx - 1);
         }
 
         function nextImage() {
-          const idx = indexOfCurrent();
-          showByIndex(idx + 1);
+          const idx = getCurrentActiveIndex();
+          setActiveByIndex(idx + 1);
         }
+
+
 
         if (prevBtnPopup) prevBtnPopup.addEventListener('click', prevImage);
         if (nextBtnPopup) nextBtnPopup.addEventListener('click', nextImage);
@@ -125,6 +149,17 @@
 
         popup.dataset.handlersBound = '1';
       }
+
+      const clickedIndex = indexOfSrc(src);
+
+      setActiveByIndex(clickedIndex >= 0 ? clickedIndex : 0);
+
+
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      const closeBtn = popup.querySelector('.image-popup-close');
+      if (closeBtn) closeBtn.focus();
     });
   }
 

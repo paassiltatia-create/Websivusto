@@ -602,6 +602,7 @@ body {
 
 .slide img {
     width: 100%;
+    cursor: pointer;
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -687,32 +688,51 @@ body {
     }
 }
 
-/* IMAGE POPUP (slideshow click) */
+/* IMAGE POPUP (slideshow click) - single photo */
 .image-popup-content {
     max-width: 900px;
     width: 95%;
     padding: 18px;
 }
 
-.image-popup-content img {
+.image-popup-header {
+    display: flex;
+    justify-content: center;
+}
+
+.image-popup-title {
+    margin: 12px 0 0 0;
+    font-size: 20px;
+    color: #1b5e20;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.3px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-transform: none;
+    line-height: 1.2;
+    border-bottom: none;
+    box-shadow: none;
+    padding-bottom: 0;
+
+}
+
+
+
+.image-popup-single {
+    position: relative;
+    width: 100%;
+}
+
+.image-popup-single img {
     width: 100%;
     height: auto;
     max-height: 85vh;
     object-fit: contain;
     display: block;
-    margin: 0 auto;
+    margin-top: 10px;
     border-radius: 14px;
 }
 
-
-.image-popup-title {
-    margin: 12px 0 0 0;
-    font-size: 18px;
-    color: #1b5e20;
-    font-weight: 800;
-    text-align: center;
-    letter-spacing: -0.2px;
-}
 
 /* Navigation buttons inside popup (match slideshow theme) */
 .image-popup-nav {
@@ -762,19 +782,29 @@ body {
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 8px 10px;       
+
+  /* Matemaattinen ympyrä: sama width/height + 50% border-radius */
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
+
   font-size: 18px;
   cursor: pointer;
   display: none;
   opacity: 0.8;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-  transition: opacity 0.25s ease, 
-              transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 999;
   backdrop-filter: blur(4px);
-  text-align: center;
+
+  /* ettei tekstin rivinvaihdot vaikuta muotoon */
   line-height: 1;
+  padding: 0;
 }
 
 a.back-to-top {
@@ -802,6 +832,17 @@ a.back-to-top:hover,
 #backToTop.show {
   display: inline-flex;
 }
+
+/* Ei näy ennen kuin JS lisää .show */
+#backToTop {
+  display: none;
+}
+
+/* Varotoimi: varmista että välimatka ei aiheuta näkymistä */
+#backToTop:not(.show) {
+  display: none;
+}
+
 
 /* POPUP */
 .popup {
@@ -834,9 +875,10 @@ a.back-to-top:hover,
     margin-top: 0;
     font-size: 22px;
     color: #1b5e20;
-    border-bottom: 2px solid #a5d6a7;
-    padding-bottom: 6px;
+    border-bottom: none;
+    padding-bottom: 0;
 }
+
 
 .close {
     position: absolute;
@@ -1393,7 +1435,12 @@ a.back-to-top:hover,
     #backToTop {
         bottom: 12px;
         right: 12px;
-        padding: 10px 12px;
+    }
+
+    #backToTop {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
     }
 }
 
